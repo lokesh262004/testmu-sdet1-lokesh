@@ -4,7 +4,7 @@
 - **Language:** Python 3
 - **Test Framework:** pytest + Playwright
 - **API Testing:** requests
-- **LLM Integration:** Anthropic Claude API (claude-haiku-4-5-20251001)
+- **LLM Integration:** Google Gemini API (gemini-1.5-flash)
 
 ---
 
@@ -56,10 +56,10 @@ playwright install
 ### 4. Set your Claude API key
 ```bash
 # Windows
-set ANTHROPIC_API_KEY=sk-ant-your-key-here
+set GEMINI_API_KEY=sk-ant-your-key-here
 
 # Mac/Linux
-export ANTHROPIC_API_KEY=sk-ant-your-key-here
+export GEMINI_API_KEY=sk-ant-your-key-here
 ```
 
 ### 5. Run the LLM demo (shows AI failure explanation)
