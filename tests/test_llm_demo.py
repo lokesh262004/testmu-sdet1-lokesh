@@ -33,4 +33,3 @@ def test_api_failure_demo():
                             timeout=5)
     assert response.status_code == 200, \
         f"Expected 200 OK but got {response.status_code}"
-
