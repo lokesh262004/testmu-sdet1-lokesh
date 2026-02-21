@@ -1,30 +1,30 @@
 ============================================================
-       TESTMU AI — AUTOMATED FAILURE ANALYSIS REPORT
-       Generated: 2026-02-21 14:06:54
+       TESTMU AI - AUTOMATED FAILURE ANALYSIS REPORT
+       Generated: 2026-02-21 14:19:20
 ============================================================
 
 FAILURE #1
-────────────────────────────────────────
+----------------------------------------
 Test:      tests/test_llm_demo.py::test_intentional_failure_demo
-Time:      2026-02-21 14:06:51
+Time:      2026-02-21 14:19:20
 Error:     AssertionError: Expected 5 but got 4
-assert 4 == 5
 
-🤖 Claude AI Explanation:
-LLM ERROR: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+AI Explanation:
+WHAT BROKE: The test asserted that 2+2 equals 5, but Python correctly computed 4. The expected value in the test is intentionally wrong to demonstrate the failure explainer.
+ROOT CAUSE: The assert statement has an incorrect expected value. 2+2=4 in Python, not 5.
+SUGGESTED FIX: Change assert result == 5 to assert result == 4, or update the business logic to match the correct expected outcome.
 
 ============================================================
 
 FAILURE #2
-────────────────────────────────────────
+----------------------------------------
 Test:      tests/test_llm_demo.py::test_api_failure_demo
-Time:      2026-02-21 14:06:54
+Time:      2026-02-21 14:19:23
 Error:     AssertionError: Expected 200 OK but got 401
-assert 401 == 200
- +  where 401 = <Response [401]>.status_code
 
-🤖 Claude AI Explanation:
-LLM ERROR: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+AI Explanation:
+WHAT BROKE: The API returned a 401 Unauthorized status instead of the expected 200 OK. The request was rejected due to an invalid or missing authentication token.
+ROOT CAUSE: The Bearer token used in the Authorization header is fake/invalid. The server correctly rejected the unauthenticated request.
+SUGGESTED FIX: Replace fake_token with a valid API token obtained from the authentication endpoint, or set up proper test credentials in a .env file.
 
 ============================================================
-
