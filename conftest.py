@@ -91,3 +91,4 @@ def pytest_sessionfinish(session, exitstatus):
             f.write("\n" + "=" * 60 + "\n\n")
 
     print(f"\n📄 Failure report saved to: {report_path}")
+
