@@ -1,28 +1,30 @@
 ============================================================
        TESTMU AI — AUTOMATED FAILURE ANALYSIS REPORT
-       Generated: 2026-02-21 13:34:59
+       Generated: 2026-02-21 14:06:54
 ============================================================
 
 FAILURE #1
 ────────────────────────────────────────
 Test:      tests/test_llm_demo.py::test_intentional_failure_demo
-Time:      2026-02-21 13:34:57
+Time:      2026-02-21 14:06:51
 Error:     AssertionError: Expected 5 but got 4
 assert 4 == 5
 
 🤖 Claude AI Explanation:
-LLM ERROR: Could not get AI explanation. Reason: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYLsHhXipRjE748TRshxf'}
+LLM ERROR: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 
 ============================================================
 
 FAILURE #2
 ────────────────────────────────────────
 Test:      tests/test_llm_demo.py::test_api_failure_demo
-Time:      2026-02-21 13:34:59
-Error:     ConnectionError: HTTPSConnectionPool(host='api.testmu.ai', port=443): Max retries exceeded with url: /v1/tests (Caused by NameResolutionError("HTTPSConnection(host='api.testmu.ai', port=443): Failed to resolve 'api.testmu.ai' ([Errno 11001] getaddrinfo failed)"))
+Time:      2026-02-21 14:06:54
+Error:     AssertionError: Expected 200 OK but got 401
+assert 401 == 200
+ +  where 401 = <Response [401]>.status_code
 
 🤖 Claude AI Explanation:
-LLM ERROR: Could not get AI explanation. Reason: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYLsHrbgHBHQRkgqq4H7x'}
+LLM ERROR: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 
 ============================================================
 

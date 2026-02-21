@@ -28,7 +28,7 @@ def test_api_failure_demo():
     Simulates an API test failure by hitting a fake endpoint.
     Claude will explain the connection error in the failure report.
     """
-    response = requests.get("https://api.testmu.ai/v1/tests",
+    response = requests.get("https://httpbin.org/status/401",
                             headers={"Authorization": "Bearer fake_token"},
                             timeout=5)
     assert response.status_code == 200, \
