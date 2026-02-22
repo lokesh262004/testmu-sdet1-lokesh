@@ -103,3 +103,27 @@ First attempt mixed Playwright and requests in the same file which caused import
 Had to explicitly state "use requests library only, not Playwright". Also the schema validation 
 test was missing — added scenario 10 in the second prompt iteration. Rate limiting test 
 initially had no loop, just one request — fixed by specifying "send 100 requests rapidly".
+
+
+
+---
+
+## Per-Module Prompt Iteration Notes
+
+### Login Module
+First prompt was too vague — just asked for "login test cases." The LLM returned
+generic scenarios without covering security edge cases. Added explicit instructions
+to include brute-force lockout and SQL injection. Also specified Gherkin format
+in the second attempt, which produced properly structured Given/When/Then steps.
+
+### Dashboard Module
+Initial prompt didn't mention roles or permissions, so all generated cases assumed
+admin access. Revised prompt to specify "viewer" and "admin" roles explicitly.
+Also had to add "responsive layout" as a keyword — the first output only covered
+desktop scenarios and missed mobile entirely.
+
+### API Module
+First attempt generated only happy-path GET/POST tests. Had to re-prompt with
+"include 4xx and 5xx error handling, rate limiting with 429 response, and schema
+validation" to get full coverage. Also specified that auth token tests should cover
+valid, invalid, missing, and expired token scenarios separately.
